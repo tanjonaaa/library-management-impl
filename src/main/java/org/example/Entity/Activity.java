@@ -7,13 +7,13 @@ import java.util.List;
 public class Activity {
     private String id;
     private String SubscriberId;
-    private List<Book> books;
+    private String bookId;
     private LocalDateTime createdAt;
 
-    public Activity(String id, String subscriberId, List<Book> books, LocalDateTime createdAt) {
+    public Activity(String id, String subscriberId, String bookId, LocalDateTime createdAt) {
         this.id = id;
         SubscriberId = subscriberId;
-        this.books = books;
+        this.bookId = bookId;
         this.createdAt = createdAt;
     }
 
@@ -33,12 +33,12 @@ public class Activity {
         SubscriberId = subscriberId;
     }
 
-    public List<Book> getBooks() {
-        return books;
+    public String getBookId() {
+        return bookId;
     }
 
-    public void setBooks(List<Book> books) {
-        this.books = books;
+    public void setBooks(String bookId) {
+        this.bookId = bookId;
     }
 
     public LocalDateTime getCreatedAt() {
