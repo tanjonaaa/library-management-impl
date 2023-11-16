@@ -8,13 +8,14 @@ public class Book {
     private int pageNumber;
     private Topic topic;
     private Author author;
-
-    public Book(String id, String name, int pageNumber, Topic topic, Author author) {
+    private Subscriber borrower;
+    public Book(String id, String name, int pageNumber, Topic topic, Author author, Subscriber borrower) {
         this.id = id;
         this.name = name;
         this.pageNumber = pageNumber;
         this.topic = topic;
         this.author = author;
+        this.borrower = borrower;
     }
 
     public String getId() {
@@ -55,5 +56,13 @@ public class Book {
 
     public void setAuthor(Author author) {
         this.author = author;
+    }
+
+    public Subscriber getBorrower() {
+        return borrower;
+    }
+
+    public void setBorrower(Subscriber borrower) {
+        this.borrower = borrower;
     }
 }
