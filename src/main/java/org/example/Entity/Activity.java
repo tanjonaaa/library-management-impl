@@ -1,8 +1,6 @@
 package org.example.Entity;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.util.List;
 
 public class Activity {
     private String id;
