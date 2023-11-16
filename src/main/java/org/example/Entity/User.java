@@ -6,7 +6,7 @@ public class User {
     private String ref;
     public User(String id, String name, String ref){
         this.id = id;
-        this.name = id;
+        this.name = name;
         this.ref = ref;
     }
 
