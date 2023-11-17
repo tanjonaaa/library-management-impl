@@ -12,7 +12,7 @@ public class Book {
     private String id;
     private String name;
     private Integer pageNumber;
-    private Topic topic;
+    private String topic;
     private String authorId;
     private String borrowerId;
 }
