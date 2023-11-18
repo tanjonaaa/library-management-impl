@@ -39,35 +39,9 @@ public class BookCrudOperations implements CrudOperations<Book> {
     @Override
     public List<Book> saveAll(List<Book> toSave) {
         List<Book> saved = new ArrayList<>();
-        try {
-            Connection connection = org.example.Connection.getConnection();
-            String sql = "INSERT INTO \"book\" (name, pagenumber, topic, authorid, borrowerid) " +
-                    "VALUES (?, ?, ?, ?, ?)";
-
-            for (Book book : toSave) {
-                try {
-                    PreparedStatement statement = connection.prepareStatement(sql);                statement.close();
-
-                    statement.setString(1, book.getName());
-                    statement.setObject(2, book.getPageNumber());
-                    statement.setString(3, book.getTopic());
-                    statement.setString(4, book.getAuthorId());
-                    statement.setString(5, book.getBorrowerId());
-
-                    int rows = statement.executeUpdate();
-
-                    if(rows != 0 ){
-                        saved = toSave;
-                    }
-
-                    statement.close();
-                } catch (SQLException e) {
-                    throw new RuntimeException(e);
-                }
-            }
-
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
+        for (Book book : toSave) {
+            Book savedBook = this.save(book);
+            saved.add(savedBook);
         }
         return saved;
     }
@@ -78,7 +52,7 @@ public class BookCrudOperations implements CrudOperations<Book> {
         try {
             Connection connection = org.example.Connection.getConnection();
             String sql = "INSERT INTO \"book\" (name, pagenumber, topic, authorid, borrowerid) " +
-                    "VALUES (?, ?, ?, ?, ?)";
+                    "VALUES (?, ?, CAST(? AS topic), ?, ?)";
 
             PreparedStatement statement = connection.prepareStatement(sql);
 
