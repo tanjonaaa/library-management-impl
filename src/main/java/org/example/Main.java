@@ -23,16 +23,16 @@ public class Main {
         System.out.println(crudSubscribers.findAll().toString());
         //Save all
         List<Book> books = Arrays.asList(
-                new Book("Moby dick", 100, "Other"),
+                new Book("f4968df9-d785-4e72-9589-177672863a38", "Moby dick", 100, "Other", null, null),
                 new Book("SNK", 500, "Other")
         );
         List<Author> authors = Arrays.asList(
-          new Author("George R.R Martin", "M"),
-          new Author("Tanjona", "M")
+                new Author("George R.R Martin", "M"),
+                new Author("cc381cae-c851-4366-b8a8-96c4d5f1d183", "Tanjona", "M")
         );
         List<Subscriber> subscribers = Arrays.asList(
                 new Subscriber("Test123", "test123"),
-                new Subscriber("test321", "test321")
+                new Subscriber("819b25ed-1464-4b05-8354-80c9bef73c1a", "test321", "test321")
         );
         System.out.println(crudBooks.saveAll(books));
         System.out.println(crudAuthors.saveAll(authors));
